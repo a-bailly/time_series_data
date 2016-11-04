@@ -60,12 +60,15 @@ Fisrt column is the label, the following numbers are the different time instant 
 
 ### Mean profil per class per domain
 
-![Source Profil](/img/Source_profil.pdf)
-![A Profil](/img/A_profil.pdf)
-![B Profil](/img/B_profil.pdf)
-![C Profil](/img/C_profil.pdf)
-![D Profil](/img/D_profil.pdf)
-![E Profil](/img/E_profil.pdf)
+| Ref | Preview |
+| :----: | :----: |
+| Source | ![Source Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/Source_profil.png) |
+| A | ![A Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/A_profil.png) |
+| B | ![B Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/B_profil.png) |
+| C | ![C Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/C_profil.png) |
+| D | ![D Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/D_profil.png) |
+| E | ![E Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/E_profil.png) |
+
 
 ## Code for time series extraction ##
 

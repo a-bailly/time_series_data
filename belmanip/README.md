@@ -34,7 +34,7 @@ Fisrt column is the label, the following numbers are the different time instant 
 
 ### Map
 
-![Image BELMANIP Map](/img/belmanip_map.pdf)
+![Image BELMANIP Map](https://github.com/a-bailly/time_series_data/blob/master/belmanip/img/belmanip_map.png)
 
 Label information provided by [BELMANIP](http://calvalportal.ceos.org/web/olive/site-description) are taken from all over the world.
 We here focus on the darker area shown on the map, which roughly correspond to North America.
