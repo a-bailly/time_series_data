@@ -5,12 +5,12 @@
 // Selection of satellite and year
 var year = 2011; // 2003 or 2011
 
-var modis   = ee.ImageCollection('MODIS/MCD43A4_NDVI');			/* 2000 - 2016 -- 8Day */
-var modis16 = ee.ImageCollection('MODIS/MOD13A1');				/* 2000 - 2016 -- 16Day */
-var landsat = ee.ImageCollection('LANDSAT/LT5_L1T_8DAY_NDVI');	/* 1984 - 2012 -- 8Day */
+var modis     = ee.ImageCollection('MODIS/MCD43A4_NDVI');			/* 2000 - 2016 -- 8Day */
+var landsat   = ee.ImageCollection('LANDSAT/LT5_L1T_8DAY_NDVI');	/* 1984 - 2012 -- 8Day */
+var modis_lai = ee.ImageCollection('MODIS/006/MCD15A3H');			/* 2002 - 2016 -- 4Day */
 
-var choosen_image = modis;
-var selection = 'NDVI';
+var choosen_image = modis; // landsat; // modis_lai; //
+var selection = 'NDVI'; // 'Lai'; //
 
 var collection = ee.ImageCollection(choosen_image)
   .filterDate(ee.Date(year+'-01-01'), ee.Date(year+'-12-31'))
@@ -28,11 +28,12 @@ var igbpPalette = ['aec3d4', '152106', '225129', '369b47', '30eb5b', '387242', '
 //Map.addLayer(cover, {min: 0, max: 17, palette: igbpPalette}, 'IGBP classification');
 
 var get_charts = function(polygon) {
-  var nb_ts = 100;
+  var nb_ts = 100; // 50 max for Lai
   
   // Plot the polygon where points are extracted
   //  Map.addLayer(polygon);
   
+  // Need to change last digit after each run
   var ftrcoll = ee.FeatureCollection.randomPoints(polygon, nb_ts, 0);
   
   // Plot choosen random points
@@ -53,6 +54,7 @@ var get_charts = function(polygon) {
 
 var bool_eu = true;
 var bool_na = false;
+var bool_sa = false;
 
 // Europa
 var europa = ee.Geometry.Polygon(
@@ -69,3 +71,11 @@ var north_america = ee.Geometry.Polygon(
 
 if(bool_na)
   get_charts(north_america);
+
+// South America
+
+var south_america = ee.Geometry.Polygon(
+  [[[-70,-18],  [-40,-18],  [-50,-30], [-70,-30]]]);
+
+if(bool_sa)
+  get_charts(south_america);//*/

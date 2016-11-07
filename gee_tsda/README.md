@@ -69,6 +69,12 @@ Fisrt column is the label, the following numbers are the different time instant 
 | D | ![D Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/D_profil.png) |
 | E | ![E Mean Profil](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/E_profil.png) |
 
+### Extraction Map
+
+![GEE-TSDA Extraction Map](https://github.com/a-bailly/time_series_data/blob/master/gee_tsda/img/gee_extraction_map.png)
+
+Each black polygon correspond to the area where time series are extracted.
+Coordinates are available in the file *gee_time_series_extraction.gee*.
 
 ## Code for time series extraction ##
 
