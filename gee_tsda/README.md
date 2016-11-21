@@ -15,7 +15,7 @@ Best accuracy for each domain is provided in bold.
 | B | 0.554 | 0.411 | 0.627 | **0.631** |
 | C | 0.293 | 0.281 | 0.376 | **0.532** |
 | D | 0.188 | 0.169 | 0.265 | **0.412** |
-| E | 0.515 | 0.074 | 0.385 | **0.534** |
+| E | 0.515 | 0.220 | 0.385 | **0.534** |
 
 ## File Format ##
 
@@ -79,4 +79,8 @@ Coordinates are available in the file *gee_time_series_extraction.gee*.
 ## Code for time series extraction ##
 
 The file *gee_time_series_extraction.gee* contains the code that extracts the time series from the [Google Earth Engine](https://code.earthengine.google.com/) Framework.
+The file *converge.py* enables to merge the two .CSV file from GEE framework, extract the considered classes (and merge them if necessary), deals with missing values and format the data to fit the description given above.
 
+### License ###
+
+Please check the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
