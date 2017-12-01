@@ -9,7 +9,7 @@ RD-1 and RD-2 correspond to classification on Raw Data with a linear discriminan
 SSMA and KEMA project the time series in a common latent before classifying with the L-DAC.
 Best accuracy for each domain is provided in bold.
 
-| Target | RD-1 | RD-2 | SSMA | KEMA |
+| Target | RD-1 | RD-2 | SSMA | KEMA |
 | :----: | :----: | :----: | :----: | :----: |
 | A | 0.542 | 0.263 | 0.636 | **0.724** |
 | B | 0.554 | 0.411 | 0.627 | **0.631** |
@@ -27,9 +27,9 @@ Fisrt column is the label, the following numbers are the different time instant 
 
 ## File Description ##
 
-### Description
+### Description
 
-| Name | Ref | \# of Time Series | Length | Satellite | Temporal Resolution | Geographical Area | Year | Vegetation Index | ImageCollection ID |
+| Name | Ref | \# of Time Series | Length | Satellite | Temporal Resolution | Geographical Area | Year | Vegetation Index | ImageCollection ID |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | modis_eu_ndvi_8day_2011.txt | Source | 311 | 46 | MODIS | 8 days | Europe | 2011 | NDVI | `MODIS/MCD43A4_NDVI` |
 | modis_sa_ndvi_8day_2011.txt | A |  338 | 46 | MODIS | 8 days | South America | 2011 | NDVI | `MODIS/MCD43A4_NDVI` |
@@ -49,7 +49,7 @@ Fisrt column is the label, the following numbers are the different time instant 
 
 ### Summary of the number of time series per class
 
-| Ref | Total | Evergreen Forest | Deciduous Forest | Shrublands | Savannas | Grasslands | Croplands |
+| Ref | Total | Evergreen Forest | Deciduous Forest | Shrublands | Savannas | Grasslands | Croplands |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | Source | 311 | 11 | 27 | 20 | 47 | 14 | 192 |
 | A |  338 | 48 | 60 | 58 | 94 | 46 | 32 |
@@ -58,7 +58,7 @@ Fisrt column is the label, the following numbers are the different time instant 
 | D | 355 | 11 | 32 | 21 | 51 | 14 | 226 |
 | E | 339 | 9  | 31 | 21 | 58 | 19 | 201 |
 
-### Mean profil per class per domain
+### Mean profil per class per domain
 
 | Ref | Preview |
 | :----: | :----: |
@@ -76,11 +76,11 @@ Fisrt column is the label, the following numbers are the different time instant 
 Each black polygon correspond to the area where time series are extracted.
 Coordinates are available in the file *gee_time_series_extraction.gee*.
 
-## Code for time series extraction ##
+## Code for time series extraction
 
 The file *gee_time_series_extraction.gee* contains the code that extracts the time series from the [Google Earth Engine](https://code.earthengine.google.com/) Framework.
 The file *converge.py* enables to merge the two .CSV file from GEE framework, extract the considered classes (and merge them if necessary), deals with missing values and format the data to fit the description given above.
 
-### License ###
+### License
 
 Please check the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
