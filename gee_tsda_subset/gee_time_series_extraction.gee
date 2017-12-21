@@ -1,0 +1,81 @@
+// ----------------------------------------------------------- //
+// Written by Adeline Bailly adeline.bailly[at]univ-rennes2.fr //
+// ----------------------------------------------------------- //
+
+// Selection of satellite and year
+var year = 2011; // 2003 or 2011
+
+var modis     = ee.ImageCollection('MODIS/MCD43A4_NDVI');			/* 2000 - 2016 -- 8Day */
+var landsat   = ee.ImageCollection('LANDSAT/LT5_L1T_8DAY_NDVI');	/* 1984 - 2012 -- 8Day */
+var modis_lai = ee.ImageCollection('MODIS/006/MCD15A3H');			/* 2002 - 2016 -- 4Day */
+
+var choosen_image = modis; // landsat; // modis_lai; //
+var selection = 'NDVI'; // 'Lai'; //
+
+var collection = ee.ImageCollection(choosen_image)
+  .filterDate(ee.Date(year+'-01-01'), ee.Date(year+'-12-31'))
+  .select(selection);
+
+// IGBP classification
+var cover = ee.ImageCollection('MODIS/051/MCD12Q1') /* Jan 1, 2001 - Jan 1, 2012 */
+  .filterDate(ee.Date((year-1)+'-01-01'), ee.Date((year+1)+'-12-31'))
+  .select('Land_Cover_Type_1');
+  
+var igbpPalette = ['aec3d4', '152106', '225129', '369b47', '30eb5b', '387242', '6a2325', 'c3aa69',
+  'b76031', 'd9903d', '91af40', '111149', 'cdb33b', 'cc0013', '33280d', 'd7cdcc', 'f7e084', '6f6f6f'
+];
+
+//Map.addLayer(cover, {min: 0, max: 17, palette: igbpPalette}, 'IGBP classification');
+
+var get_charts = function(polygon) {
+  var nb_ts = 100; // 50 max for Lai
+  
+  // Plot the polygon where points are extracted
+  //  Map.addLayer(polygon);
+  
+  // Need to change last digit after each run
+  var ftrcoll = ee.FeatureCollection.randomPoints(polygon, nb_ts, 0);
+  
+  // Plot choosen random points
+  //Map.addLayer(ftrcoll);
+  
+  var ts = Chart.image.seriesByRegion(
+    collection, ftrcoll, ee.Reducer.mean(), selection, 1, 'system:time_start', 'system:index')
+    .setChartType('ScatterChart').setOptions({lineWidth: 1, pointSize: 1});
+  
+  var cl = Chart.image.seriesByRegion(
+    cover, ftrcoll, ee.Reducer.mean(), 'Land_Cover_Type_1', 1, 'system:time_start', 'system:index')
+    .setChartType('ScatterChart').setOptions({lineWidth: 1,pointSize: 1});
+  
+  print(ts); print(cl);
+  
+  return true;
+};
+
+var bool_eu = true;
+var bool_na = false;
+var bool_sa = false;
+
+// Europa
+var europa = ee.Geometry.Polygon(
+  [[[-8.70,37.16], [-1.50,36.88], [3.60,43.00], [9.32,44.08], [15.82,39.24], [27.50,40.98],
+  [29.35,46.00], [-1.06,46.44], [-1.58,43.00], [-8.78,43.26], [-8.70,37.16]]]);
+
+if(bool_eu)
+  get_charts(europa);
+
+// North America
+var north_america = ee.Geometry.Polygon(
+  [[[-111.97,28.61], [-81.56,30.75], [-72.07,40.07], [-123.75,40.07], [-111.97,28.61]
+  ]]);
+
+if(bool_na)
+  get_charts(north_america);
+
+// South America
+
+var south_america = ee.Geometry.Polygon(
+  [[[-70,-18],  [-40,-18],  [-50,-30], [-70,-30]]]);
+
+if(bool_sa)
+  get_charts(south_america);//*/
