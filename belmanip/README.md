@@ -4,13 +4,13 @@
 
 Each line corresponds to a labeled time series.
 
-Fisrt column is the label, the following numbers are the different time instant of the time series.
+First column is the label, the following numbers are the different time instant of the time series.
 
 `L t_1 t_2 t_3 ... t_n`
 
 ## File Description ##
 
-### Description
+### Description
 
 | Name | Ref | \# of Time Series | Length | Satellite | Temporal Resolution | Geographical Area | Year | Vegetation Index |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
@@ -28,7 +28,7 @@ Fisrt column is the label, the following numbers are the different time instant 
 
 ### Summary of the number of time series per class
 
-| Ref | Total | Evergreen Forest | Deciduous Forest | Shrublands | Savannas | Grasslands | Croplands |
+| Ref | Total | Evergreen Forest | Deciduous Forest | Shrublands | Savannas | Grasslands | Croplands |
 | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
 | Per Modality | 86 | 14 | 4 | 12 | 3 | 16 | 19 |
 
