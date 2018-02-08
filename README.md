@@ -45,16 +45,6 @@ If you use one or several Remote Sensing Time Series dataset(s) in a scientific 
 }
 ```
 
-## For TiSeLac dataset
-```
-@misc{gee-tsda,
-  title  = {{TiSeLaC : Time Series Land Cover Classification Challenge}},
-  author = {{Bailly, Adeline}},
-  year   = {2017},
-  note   = {\url{github.com/a-bailly/time_series_data}}
-}
-```
-
 ## License
 
 Under [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
